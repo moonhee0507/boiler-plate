@@ -6,13 +6,18 @@
     "main": "index.js",
     "scripts": {
         "start": "node index.js",
+        "backend": "nodemon index.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "author": "moon-hee",
     "license": "ISC",
     "dependencies": {
+        "body-parser": "^1.20.1",
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
         "mongoose": "^6.7.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
     }
 }
