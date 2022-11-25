@@ -27,6 +27,9 @@ mongoose
     .catch((e) => console.error(e));
 
 app.get("/", (req, res) => res.send("안녕하세요🥰 노드몬 좋으네요."));
+app.get("/api/hello", (req, res) => {
+    res.send("axios 테스트 중...");
+});
 
 // 회원가입을 위한 라우트
 app.post("/api/users/register", (req, res) => {
@@ -74,6 +77,7 @@ app.post("/api/users/login", (req, res) => {
 
 app.get("/api/users/auth", auth, (req, res) => {
     // middleware를 통과하면 시작
+    console.log("미들웨어ㅓㅓ");
     res.status(200).json({
         _id: req.user._id,
         isAdmin: req.user.role === 0 ? false : true, // role이 0이면 일반유저, 아니면 관리자
