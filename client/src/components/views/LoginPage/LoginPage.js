@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_action.js";
+import Auth from "../../../hoc/auth.js";
 
-function LoginPage(props) {
+function LoginPage() {
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -25,7 +28,7 @@ function LoginPage(props) {
 
         dispatch(loginUser(body)).then((res) => {
             if (res.payload.loginSuccess) {
-                props.history.push("/");
+                navigate("/");
             } else alert("Error");
         });
     };
@@ -58,4 +61,4 @@ function LoginPage(props) {
     );
 }
 
-export default LoginPage;
+export default Auth(LoginPage, false);
