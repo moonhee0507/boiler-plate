@@ -33,6 +33,10 @@ function LoginPage() {
         });
     };
 
+    const goToLoginUrl = () => {
+        window.location.href = `https://github.com/login/oauth/authorize?client_id=${process.env.REACT_APP_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_REDIRECT_URL}`;
+    };
+
     return (
         <div
             style={{
@@ -56,6 +60,9 @@ function LoginPage() {
                     onChange={onPasswordHandler}
                 />
                 <button type="submit">Login</button>
+                <button type="button" onClick={goToLoginUrl}>
+                    Login for Github
+                </button>
             </form>
         </div>
     );
